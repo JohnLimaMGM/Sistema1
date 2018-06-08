@@ -22,7 +22,8 @@ namespace Sistema1.Controllers
         // GET: Produto/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var produto = db.Produto.Find(id);
+            return View(produto);
         }
 
         // GET: Produto/Create
