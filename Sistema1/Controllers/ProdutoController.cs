@@ -119,12 +119,13 @@ namespace Sistema1.Controllers
 
         // POST: Produto/Delete/5
         [HttpPost]
-        public ActionResult Delete(Produto produto)
+        public ActionResult Delete(int id, Produto produto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    produto = db.Produto.Find(id);
                     db.Produto.Remove(produto);
                     db.SaveChanges();
                     return RedirectToAction("Index");
